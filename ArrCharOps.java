@@ -129,7 +129,7 @@ public class ArrCharOps {
         char[] subArray1 = new char [newLength];
         int index = 0;
 
-        for (int i = beginIndex; i <= endIndex; i++) {
+        for (int i = beginIndex; i < (endIndex + 1); i++) {
             subArray1[index] = arr[i];
             index++;
         }
