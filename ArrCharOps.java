@@ -55,6 +55,7 @@ public class ArrCharOps {
                 isEqual = true;
                 continue;
             } else {
+                isEqual = false;
                 break;
             }
         }
@@ -177,6 +178,10 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        if (str1 == "" || str2 == ""){
+            return -2;
+        }
+
         if (str1.length() == str2.length()){
             for (int i = 0; i < str1.length(); i++) {
                 if (str1.charAt(i) == str2.charAt(i)){
