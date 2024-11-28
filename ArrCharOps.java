@@ -53,8 +53,9 @@ public class ArrCharOps {
             if (charAt(arr1, i) != charAt(arr2, i)){
                 return false;
         }
-        return true;
     }
+    return true;
+}
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
