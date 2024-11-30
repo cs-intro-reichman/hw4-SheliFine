@@ -18,9 +18,57 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
     }
 
+    public static String lowerCase(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            int ch = str.charAt(i);
+            // checks ASCII num to check if uppercase letter 
+            // and adds 32 to make it lowercase, using ASCII.
+            if (ch > 64 && ch < 91){
+                ch += 32;
+                str = str.substring(0, i) + (char) ch + str.substring(i + 1);
+            } else {
+                continue;
+            }
+        } 
+        return str;
+    }
+
+    public static boolean contains(String str1, String str2) {
+ 
+        if (str2.length() > str1.length()) {
+            return false;
+        }
+        
+        if (str2 == ""){
+            return true;
+        }
+
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            if (str1.charAt(i) == str2.charAt(0)) {
+                int j = 1;
+                while (j < str2.length() && str1.charAt(i + j) == str2.charAt(j)) {
+                    j++;
+                }
+                if (j == str2.length()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        for (int i = 0; i < sentences.length; i++) {
+            for (int j = 0; j < keywords.length; j++) {
+                String temp = lowerCase(sentences[i]);
+                keywords[j] = lowerCase(keywords[j]);                
+                if (contains(temp, keywords[j])){
+                    System.out.println(sentences[i]);
+                    break;
+                }  
+            }
+        }
     }
 }
