@@ -39,6 +39,9 @@ public class MyString {
             return false;
         }
         
+        if (str2 == ""){
+            return false;
+        }
 
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
             if (str1.charAt(i) == str2.charAt(0)) {
