@@ -40,7 +40,7 @@ public class MyString {
         }
         
         if (str2 == ""){
-            return false;
+            return true;
         }
 
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
